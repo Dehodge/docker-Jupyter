@@ -9,3 +9,15 @@ before_install:
 script:
     - docker ps
     - docker run -i -t dehodgie/docker-jupyter python -c 'import gdal'
+    
+deploy:
+    provider: elasticbeanstalk
+    region: "eu-west-2"
+    app: "docker-jupyter"
+    env: "DockerJupyter-env"
+    bucket_name: "elasticbeanstalk-eu-west-2-152555717435"
+    bucket_path: "docker-jupyter"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
