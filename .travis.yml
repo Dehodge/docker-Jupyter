@@ -6,4 +6,4 @@ before_install:
     - docker build -t dehodgie/docker-jupyter -f Dockerfile.dev . 
 
 script:
-    - docker run -e CI=true hodgie/Jupyter jupyter notebook ./data/untitled.ipynb --ip=0.0.0.0 --port=8888 --no-browser --allow-root
+    - docker run -e CI=true dehodgie/docker-jupyter jupyter notebook ./data/untitled.ipynb --ip=0.0.0.0 --port=8888 --no-browser --allow-root
