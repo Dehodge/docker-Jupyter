@@ -1,0 +1,13 @@
+version: "3.0"
+services:
+  notebook:
+      image: hodgie/jupytertest
+      container_name: jupyter01
+      ports:
+            - "8888:8888"
+      volumes:
+            - ./data:/app/data
+      build:
+            context: .
+            dockerfile: Dockerfile.dev
+
