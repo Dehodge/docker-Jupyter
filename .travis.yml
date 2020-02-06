@@ -3,7 +3,9 @@ services:
     - docker
     
 before_install:
-    - docker build -t dehodgie/docker-jupyter -f Dockerfile.dev . 
+    - docker build -t dehodgie/docker-jupyter -f Dockerfile.dev .
+    - docker run -d -p 8888:8888 dehodgie/docker-jupyter
 
 script:
-    - docker run -e CI=true dehodgie/docker-jupyter
+    - docker ps
+    - docker run -i -t dehodgie/docker-jupyter python -c 'import gdal'
